@@ -11,7 +11,7 @@ import { AuthService } from './service/auth.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'imagr';
+  title = 'Angular Gallery';
   userData = signal({});
 
   constructor(private auth: AuthService, private router: Router) {

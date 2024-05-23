@@ -1,12 +1,15 @@
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand">Navbar</a>
-    <form class="d-flex">
-
-
+<nav class="navbar bg-gradient-to-t from-blue-300 to-blue-500 p-4 shadow-lg backdrop-blur-md">
+  <div class="container-fluid flex justify-between items-center">
+    <span class="navbar-brand text-black font-bold text-3xl">Angular Gallery</span>
+    <form class="d-flex items-center">
       @if(this.userData()) {
-      <button (click)="signOut()" class="btn btn-outline-success me-2" type="button">Logout</button>
-      <p class="text-black my-2">{{this.userData()}}</p>
+      <p class="text-black text-xl my-2 mr-10 font-semibold animate-fade-in">{{this.userData()}}</p>
+      <button 
+        (click)="signOut()" 
+        class="btn btn-outline-success me-2 text-white bg-black hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-2 mb-2" 
+        type="button">
+        Logout
+      </button>
       } @else {
       <span>{{""}}</span>
       }

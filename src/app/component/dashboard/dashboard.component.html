@@ -1,39 +1,43 @@
-<div class="container">
-  <div class="box">
-    <div class="box-list">
-      <img data-bs-toggle="modal" data-bs-target="#exampleModal"
-        src="https://res.cloudinary.com/dz4tt9omp/image/upload/v1674315975/6769264_60111.jpg" alt="" class="box-img">
-    </div>
-    <div class="box-list">
-      <img src="https://res.cloudinary.com/dz4tt9omp/image/upload/v1674315975/6769264_60111.jpg" alt="" class="box-img">
-    </div>
-    <div class="box-list">
-      <img src="https://res.cloudinary.com/dz4tt9omp/image/upload/v1674315975/6769264_60111.jpg" alt="" class="box-img">
-    </div>
-    <div class="box-list">
-      <img src="https://res.cloudinary.com/dz4tt9omp/image/upload/v1674315975/6769264_60111.jpg" alt="" class="box-img">
-    </div>
-    <div class="box-list">
-      <img src="https://res.cloudinary.com/dz4tt9omp/image/upload/v1674315975/6769264_60111.jpg" alt="" class="box-img">
-    </div>
-    <div class="box-list">
-      <img src="https://res.cloudinary.com/dz4tt9omp/image/upload/v1674315975/6769264_60111.jpg" alt="" class="box-img">
-    </div>
+<div class="container mt-5">
+  <div class="mt-3">
+    <input (change)="uploadPhoto($event)" type="file" class="form-control" accept="image/x-png,image/jpeg">
+    <label for="" class="col-form-label"></label>
   </div>
+
+  @defer {
+    <div class="box">
+      @for (image of this.imageData(); track image?.['name']) {
+        <div class="box-list p-4">
+          <img
+            (click)="modalImage(urlCDN() + userId() + '/' + image?.['name'])"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            [src]="urlCDN() + userId() + '/' + image?.['name']"
+            alt=""
+            class="box-img w-full h-auto rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl"
+            style="backdrop-filter: blur(5px); background-color: rgba(255, 255, 255, 0.1);"
+          />
+        </div>
+      }
+    </div>
+  } @loading (minimum 1s) {
+    <div>Loading</div>
+  }
 
 
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog modal-fullscreen">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-          <button #closeModal type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title" id="exampleModalLabel">Image Preview</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <img style="width: -webkit-fill-available;"
-            src="https://res.cloudinary.com/dz4tt9omp/image/upload/v1674315975/6769264_60111.jpg" alt="">
+        <div class="modal-body flex justify-center items-center">
+          <img class="max-w-md w-full h-auto rounded-lg shadow-lg" [src]="getModalImage()" alt="Selected Image">
         </div>
       </div>
     </div>
+  </div>
+</div>

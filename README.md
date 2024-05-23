@@ -1,4 +1,6 @@
-# Imagr
+# Angular Gallery
+
+This is a Angular Gallery application built using Angular for the frontend, Supabase for backend services, and GitHub API for user authentication. The application allows users to authenticate using their GitHub accounts and upload their images to the gallery.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
 
@@ -6,22 +8,31 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **User Authentication**: Users can sign in using their GitHub accounts.
+- **Image Upload**: Authenticated users can upload images to their gallery.
+- **Image Display**: Images are displayed in a responsive grid layout.
+- **Image Preview**: Click on any image to see a larger preview in a modal.
 
-## Build
+## Technologies Used
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Frontend**: Angular
+- **Backend as a Service**: Supabase
+- **Authentication**: GitHub API
 
-## Running unit tests
+## Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Before you begin, ensure you have met the following requirements:
 
-## Running end-to-end tests
+- Node.js and npm installed on your machine.
+- An active GitHub account for authentication.
+- A Supabase account with a project set up.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Getting Started
 
-## Further help
+### Clone the Repository
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+npm i
+ng serve
